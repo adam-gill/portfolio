@@ -1,0 +1,30 @@
+[
+  {
+    "company": "BCAMP",
+    "role": "Blockchain Developer Apprentice",
+    "resps": [
+      "Operated in an agile environment developing a telegram crypto trading bot using python",
+      "Managed a mySQL database with Azure to track users and their active crypto alerts",
+      "Developed an Ubuntu server providing users real-time notifications of significant crypto movements"
+    ],
+    "date": "Jan 2024 - Current"
+  },
+  {
+    "company": "Waynesburg University",
+    "role": "Mathematics Tutor",
+    "resps": [
+      "Tutored and exam prepped students in Calculus II and all Algebra courses",
+      "Taught students effective problem-solving and test-taking skills"
+    ],
+    "date": "Sep 2022 - Current"
+  },
+  {
+    "company": "Walmart",
+    "role": "Online Pickup & Delivery",
+    "resps": [
+      "Efficiently managed online orders using computer systems, showcasing attention to detail",
+      "Resolved technical issues related to order processing, demonstrating problem-solving skills"
+    ],
+    "date": "Aug 2020 - Current"
+  }
+]
