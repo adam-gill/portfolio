@@ -24,12 +24,12 @@ export default function ResumeCard({ experienceList, controls, delay }) {
         <div className="resumeCard--body--left">
           <h4>
             <ScrambleText shuffle delay={delay}>
-              {experienceList.company}
+              {experienceList.company} &nbsp;
             </ScrambleText>
           </h4>
           <p>
             <ScrambleText shuffle delay={delay}>
-              {experienceList.role}
+              {experienceList.role} &nbsp;
             </ScrambleText>
           </p>
         </div>
