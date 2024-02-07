@@ -23,11 +23,6 @@
   line-height: 140%; /* 19.6px */
   white-space: nowrap;
   opacity: 0.6;
-  margin-right: 8px;
-}
-
-.resumeCard--body--left h4 {
-  margin-right: 8px;
 }
 
 .resumeCard--body--center {
