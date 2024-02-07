@@ -4,8 +4,10 @@
     "role": "Software Developer ",
     "resps": [
       "Operated in an agile environment developing a telegram crypto trading bot using python",
+      "Developed a react frontend utilizing Moon API allowing users to create a Moon wallet/account to pay for and access the bot with cryptocurrency",
       "Managed a mySQL database with Azure to track users and their active crypto alerts",
-      "Developed an Ubuntu server providing users real-time notifications of significant crypto movements"
+      "Integrated Dune API to fetch real-time on-chain data for users' active notifications",
+      "Created an Ubuntu server accessible via ssh to run the bot indefinitely"
     ],
     "date": "Jan 2024 - Current"
   },
