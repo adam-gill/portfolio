@@ -168,6 +168,8 @@
   .footer--bottom {
     flex-direction: column-reverse;
     gap: 20px;
+    align-items: center;
+    justify-content: center;
   }
 
   .footer--bottom > *:nth-child(2) {
