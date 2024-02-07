@@ -80,7 +80,7 @@ export default function Resume() {
 
             <div className="resume--grid--detail--data--skills">
               <h4>
-                <ScrambleText delay={0}>Languages</ScrambleText>
+                <ScrambleText delay={0}>Languages</ScrambleText> &nbsp;
               </h4>
               <div className="double">
                 <FadeList delay={0} controls={controls} data={technicalSkills} />
@@ -89,7 +89,7 @@ export default function Resume() {
 
             <div className="resume--grid--detail--data--skills">
               <h4>
-                <ScrambleText delay={0}>Technologies</ScrambleText>
+                <ScrambleText delay={0}>Technologies</ScrambleText> &nbsp;
               </h4>
 
               <FadeList delay={0} controls={controls} data={qualities} />
@@ -109,7 +109,7 @@ export default function Resume() {
           </div>
           <div className="resume--grid--experience--body">
             <h4>
-              <ScrambleText delay={0}>Experience</ScrambleText>
+              <ScrambleText delay={0}>Experience</ScrambleText> &nbsp;
             </h4>
             {experienceList.map((item, index) => {
               return <ResumeCard key={index} experienceList={item} controls={controls} delay={index + 1} />
