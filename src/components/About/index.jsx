@@ -17,7 +17,7 @@ export default function About() {
   }
 
   useEffect(() => {
-    // Start animation when the component is in view
+    // Start animation when the component is in view hello
     if (inView && !hasAnimated) {
       controls.start("visible")
     }
