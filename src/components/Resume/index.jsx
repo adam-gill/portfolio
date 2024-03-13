@@ -69,7 +69,7 @@ export default function Resume() {
                 <a href="https://github.com/adam-gill" target="_blank" rel="noreferrer">
                   <Icon img={githubIcon} />
                 </a>
-                <a href="https://www.linkedin.com/in/og-ag/" target="_blank" rel="noreferrer">
+                <a href="https://www.linkedin.com/in/ogag/" target="_blank" rel="noreferrer">
                   <Icon img={linkedinIcon} />
                 </a>
                 <a href="./resume.pdf" target="_blank">
