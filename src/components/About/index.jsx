@@ -68,6 +68,11 @@ export default function About() {
           </p>
         </motion.div>
 
+        {/* hello 
+          kofkah
+          lebron
+        */}
+
         <motion.div initial="hidden" animate={controls} variants={positionVariant} className="about--marquee">
           <h1 draggable="false">
             <InteractiveMarquee wheelFactor={0} speed={1.3}>
