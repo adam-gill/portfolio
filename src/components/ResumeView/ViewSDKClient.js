@@ -1,3 +1,4 @@
+const key = import.meta.env.VITE_ADOBE_PDF_API_KEY
 class ViewSDKClient {
     constructor() {
         this.readyPromise = new Promise((resolve) => {
@@ -20,7 +21,7 @@ class ViewSDKClient {
     previewFile(divId, viewerConfig, fileName, fileURL, fileID) {
         const config = {
             /* Pass your registered client id */
-            clientId: import.meta.env.ADOBE_PDF_API_KEY,
+            clientId: key,
         };
         if (divId) { /* Optional only for Light Box embed mode */
             /* Pass the div id in which PDF should be rendered */
@@ -63,7 +64,7 @@ class ViewSDKClient {
         /* Initialize the AdobeDC View object */
         this.adobeDCView = new window.AdobeDC.View({
             /* Pass your registered client id */
-            clientId: import.meta.env.ADOBE_PDF_API_KEY,
+            clientId: key,
             /* Pass the div id in which PDF should be rendered */
             divId,
         });
@@ -125,5 +126,4 @@ class ViewSDKClient {
         );
     }
 }
-
 export default ViewSDKClient;
