@@ -3,3 +3,7 @@
     align-items: center;
     justify-content: center;
 }
+
+.full-window-div {
+    height: 100%;
+}
