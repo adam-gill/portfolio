@@ -1,0 +1,37 @@
+.fcc {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.full-window-div {
+    height: 100%;
+}
+
+.pdf {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 80%;
+    aspect-ratio: 8.5 / 11;
+    margin: 0 auto;
+    border: none;
+}
+
+.container {
+    width: 100%;
+    padding: 36px 0;
+}
+
+.row {
+    width: 100%;
+    padding: 0 18px;
+    margin: 0 auto;
+}
+
+@media screen and (max-width: 480px) {
+    .pdf {
+        width: 100%;
+    }
+}

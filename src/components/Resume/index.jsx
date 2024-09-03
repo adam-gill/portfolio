@@ -55,7 +55,7 @@ export default function Resume() {
       <div className="resume--grid">
         <div className="resume--grid--detail">
           <div className="resume--grid--detail--pic">
-            <img src={ProfilePic} alt="" />
+            <img src={ProfilePic} alt="Adam Gill" />
           </div>
           <div className="resume--grid--detail--data">
             <div className="resume--grid--detail--data--name">
