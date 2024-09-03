@@ -13,10 +13,10 @@ import tailwindIcon from "../assets/Icon/Tech/tailwind.svg";
 
 const techs = [
     {
-      title: "JavaScript",
-      icon: jsIcon,
+      title: "TypeScript",
+      icon: tsIcon,
       detail:
-        "Programming language that enables interactive web pages and is an essential part of web applications.",
+        "TypeScript is a superset of JavaScript developed by Microsoft that adds optional static typing and other features.",
         // "Hypertext Markup Language, used for structuring and presenting content on the World Wide Web.",
     },
     {

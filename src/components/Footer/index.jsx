@@ -89,20 +89,22 @@ export default function Footer() {
     }, 5000)
 
   const sendEmail = async () => {
-    // const requiredFields = ["name", "email", "message"]
-    // const missingFields = requiredFields.filter((field) => !fieldValues[field])
+    const requiredFields = ["name", "email", "message"]
+    const missingFields = requiredFields.filter((field) => !fieldValues[field])
 
-    // if (missingFields.length > 0) {
-    //   setSendStatus({ processed: true, variant: "error", message: "Not all fields were filled" })
-    //   timeoutAlert()
-    //   return
-    // }
+    console.log(missingFields)
 
-    // const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
-    // if (!emailRegex.test(fieldValues.email)) {
-    //   setSendStatus({ processed: true, variant: "error", message: "Invalid email" })
-    //   return
-    // }
+    if (missingFields.length > 10) {
+      setSendStatus({ processed: true, variant: "error", message: "Not all fields were filled" })
+      timeoutAlert()
+      return
+    }
+
+    const emailRegex = /@*/;
+    if (!emailRegex.test(fieldValues.email)) {
+      setSendStatus({ processed: true, variant: "error", message: "Invalid email" })
+      return
+    }
 
     setIsSending(true)
     try {

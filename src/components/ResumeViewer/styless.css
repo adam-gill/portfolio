@@ -1,0 +1,127 @@
+* {
+    box-sizing: border-box;
+}
+
+.resume9 {
+    width: 100%;
+    border: none;
+    aspect-ratio: 8.5 / 11;
+    padding: 0;
+    margin: 0;
+    
+}
+
+.resume__container9 {
+    width: 100%;
+    max-width: 800px;
+}
+
+.container9 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.sub__container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.title {
+    text-align: center;
+    width: fit-content;
+}
+
+.title__container {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    position: relative;
+}
+
+.btn9 {
+    position: absolute;
+    background-color: transparent;
+    border: none;
+    right: 0;
+    padding-right: 16px;
+    z-index: 50;
+}
+
+.btn__back {
+    position: absolute;
+    background-color: transparent;
+    top: 0;
+    left: 0;
+    border: none;
+    padding-top: 16px;
+    padding-left: 16px;
+    cursor: pointer;
+    z-index: 50;
+}
+
+.icon {
+    fill: "#ffffff";
+    transition: all 300ms ease-in-out;
+}
+
+.icon__back {
+    color: "#ffffff";
+    cursor: pointer;
+    transition: all 300ms ease-in-out;
+}
+
+.btn9:hover .icon  {
+    transform: scale(1.1);
+    fill: rgb(247, 0, 65);
+}
+
+.btn__back:hover .icon__back  {
+    transform: scale(1.1);
+    stroke: rgb(247, 0, 65);
+    color: rgb(247, 0, 65);
+    fill: rgb(247, 0, 65);
+}
+
+.skeleton {
+    width: 100vh;
+    height: 100vh;
+    background-color: white;
+}
+
+@keyframes pulse {
+    0% {
+        opacity: 100%;
+    } 33% {
+        opacity: 50%;
+    } 100% {
+        opacity: 100%;
+    }
+}
+
+.animate-pulse-colors {
+    animation: pulse 1s infinite ease-in-out;
+  }
+
+.date {
+    width: 100%;
+    text-align: center;
+    padding-bottom: 8px;
+    padding-left: 36px;
+    padding-right: 36px;
+}
+
+@media (max-width: 600px) {
+    .date {
+        font-size: 12px;
+    }
+
+}
