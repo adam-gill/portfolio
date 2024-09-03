@@ -23,9 +23,9 @@ dist-ssr
 *.sln
 *.sw?
 
-<<<<<<< HEAD
 bun.lockb
-=======
+
+
 .env
 .env.local
->>>>>>> ea1d6e5c48d903dc6d0d576b3e39e489e10086af
+
