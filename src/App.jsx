@@ -7,14 +7,6 @@ import { useEffect } from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 
 import "./App.css";
-import { useEffect } from "react";
-import MouseFollower from "./components/MouseFollower";
-import Header from "./components/Header";
-import About from "./components/About";
-import TechStack from "./components/TechStack";
-import Projects from "./components/Projects";
-import Resume from "./components/Resume";
-import Footer from "./components/Footer";
 
 
 function App() {
