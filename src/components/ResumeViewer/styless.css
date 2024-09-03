@@ -4,14 +4,18 @@
 
 .resume9 {
     width: 100%;
+    height: 100%;
     border: none;
     aspect-ratio: 8.5 / 11;
     padding: 0;
     margin: 0;
-    
+    overflow: hidden;
 }
 
 .resume__container9 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     width: 100%;
     max-width: 800px;
 }
@@ -22,6 +26,7 @@
     align-items: center;
     justify-content: center;
     overflow-x: hidden;
+    width: 100%;
 }
 
 .sub__container {
@@ -29,6 +34,7 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    width: 100%;
 }
 
 .title {
@@ -93,9 +99,12 @@
 }
 
 .skeleton {
-    width: 100vh;
-    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     background-color: white;
+    aspect-ratio: 8.5 / 11;
+
 }
 
 @keyframes pulse {
@@ -128,4 +137,6 @@
     .resume__container9 {
         max-width: 400px;
     }
+
+    
 }
