@@ -7,6 +7,8 @@ import ParaWriting from "../ParaWriting"
 import { motion, useAnimation } from "framer-motion"
 import { useInView } from "react-intersection-observer"
 
+import bitlance from "../../assets/Images/bitlance.png"
+import litstream from "../../assets/Images/litstream.png"
 import aisaas from "../../assets/Images/aisaas.png"
 import twitter_clone from "../../assets/Images/twitter_clone.png"
 import netflix_clone from "../../assets/Images/netflix_clone.png"
@@ -31,31 +33,31 @@ export default function Projects() {
     {
       client: "Personal Project",
       year: "2024",
-      img: aisaas,
-      title: "Full Stack AI SaaS Platform Clone",
-      detail: "Created a full stack AI SaaS Platform with chat, image, video, music, and code generation that offers a free and paid tier.",
-      url: "https://ai-saas-nine-delta.vercel.app",
-      url2: "https://github.com/adam-gill/ai-saas",
-
+      img: litstream,
+      title: "LitStream",
+      detail: "Developed a scalable Next.js SaaS platform with RESTful APIs for book summaries and audio content, featuring a responsive UI, Firebase integration for auth and storage, and Stripe for subscriptions, optimizing user learning efficiency.",
+      url: "https://litstream-neon.vercel.app/",
+      url2: "https://github.com/adam-gill/litstream"
+    },
+    {
+      client: "Personal project",
+      year: "2024",
+      img: bitlance,
+      title: "BitLance",
+      detail: "Engineered a blockchain-based freelance platform with drastically reduced fees and holding times, featuring NextAuth/Supabase authentication and Solidity smart contracts on Mode Network for secure Ethereum payouts.",
+      url: "https://bitlance-cwha.vercel.app/",
+      url2: "https://github.com/adam-gill/bitlance"
     },
     {
       client: "Personal Project",
       year: "2024",
-      img: twitter_clone,
-      title: "Full Stack Twitter Clone",
-      detail: "Developed a fullstack X (Twitter) clone that allows users to create accounts, make posts, like posts, comment on posts, and follow any user on the platform.",
-      url: "https://bird-clone-beige.vercel.app",
-      url2: "https://github.com/adam-gill/twitter-clone"
-    },
-    {
-      client: "Personal project",
-      year: "2023",
-      img: netflix_clone,
-      title: "Full Stack Netflix Clone",
-      detail: "Built a fullstack Netflix clone with Next.js, React.js, Tailwind CSS, Prisma, MongoDB, NextAuth, and Vercel. Includes authorization, user, movie, and favorites storage, and a built in video player.",
-      url: "https://test-murex-pi.vercel.app/auth",
-      url2: "https://github.com/adam-gill/netflix-clone"
-    },
+      img: aisaas,
+      title: "Genius AI",
+      detail: "Created a full stack AI SaaS Platform with chat, image, video, music, and code generation that offers a free and paid tier.",
+      url: "https://ai-saas-nine-delta.vercel.app",
+      url2: "https://github.com/adam-gill/ai-saas",
+
+    }
   ]
 
 

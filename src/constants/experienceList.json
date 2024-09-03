@@ -1,23 +1,35 @@
 [
   {
-    "company": "BCAMP ",
-    "role": "Software Developer ",
+    "company": "Mergen ",
+    "role": "Software Engineer Intern ",
     "resps": [
-      "Operated in an agile environment developing a telegram crypto trading bot using python",
-      "Developed a react frontend utilizing Moon API allowing users to create a Moon wallet/account to pay for and access the bot with cryptocurrency",
-      "Managed a mySQL database with Azure to track users and their active crypto alerts",
-      "Integrated Dune API to fetch real-time on-chain data for users' active notifications",
-      "Created an Ubuntu server accessible via ssh to run the bot indefinitely"
+      "Built reusable and responsive React components and pages with Next.js, TypeScript, and Tailwind",
+      "Leveraged AWS Amplify for a CI/CD pipeline, accelerating feature development and deployment",
+      "Engineered a multi-page onboarding form and chatbot to streamline the college application process",
+      "Collaborated cross-functionally with designers and engineers to deliver features on schedule"
     ],
-    "date": "Jan 2024 - Feb 2024"
+    "date": "Jul - Present"
   },
   {
     "company": "Waynesburg University ",
-    "role": "Mathematics Tutor ",
+    "role": "ITS Student Support Specialist ",
     "resps": [
-      "Tutored and exam prepped students in Calculus II and all Algebra courses",
-      "Taught students effective problem-solving and test-taking skills"
+      "Delivered IT support for hardware and software issues faculty, staff, and students across campus",
+      "Utilized a ticketing system to manage support requests received via email, phone, in-person",
+      "Leveraged Azure Active Directory to manage user accounts and troubleshoot various problems",
+      "Imaged and deployed new computer workstations to various locations across campus"
     ],
-    "date": "Sep 2022 - Current"
+    "date": "Jul 2024 - Current"
+  },
+  {
+    "company": "FENIX.AI ",
+    "role": "ITS Student Support Specialist ",
+    "resps": [
+      "Developed a Next.js web app w/TypeScript increasing FENIX.AI client and attorney productivity by providing interactive dashboards on client/project data, attorney efficiency, and attorney bandwidth",
+      "Collaborated in an agile environment with Data Engineers/Analysts & Software Engineers",
+      "Implemented user authentication with Auth0 and configured SSO (SAML 2.0) to Domo Dashboards",
+      "Ensured security by creating protected routes so that only authorized users could view dashboards"
+    ],
+    "date": "Mar - May 2024"
   }
 ]

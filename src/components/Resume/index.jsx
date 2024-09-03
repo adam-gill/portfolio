@@ -72,7 +72,7 @@ export default function Resume() {
                 <a href="https://www.linkedin.com/in/ogag/" target="_blank" rel="noreferrer">
                   <Icon img={linkedinIcon} />
                 </a>
-                <a href="./resume.pdf" target="_blank">
+                <a href="/resume">
                   <Icon img={fileIcon} />
                 </a>
               </motion.div>
