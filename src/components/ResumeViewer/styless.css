@@ -129,6 +129,12 @@
     padding-right: 36px;
 }
 
+.link99 {
+    color: white;
+    text-decoration: none;
+    cursor: pointer;
+}
+
 @media (max-width: 600px) {
     .date {
         font-size: 12px;

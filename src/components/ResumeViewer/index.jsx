@@ -2,12 +2,12 @@ import axios from "axios";
 import "./styless.css";
 import { useState, useEffect, useRef } from "react";
 import { AiOutlineDownload, AiOutlineHome } from "react-icons/ai";
-import { useNavigate } from 'react-router-dom';
+import { useNavigate } from "react-router-dom";
 
 export default function ResumeViewer() {
   const [metaData, setMetaData] = useState();
   const [loading, setLoading] = useState(false);
-  const navigate = useNavigate()
+  const navigate = useNavigate();
   const pdfUrl =
     "https://resumeblob63.blob.core.windows.net/resumecontainer/resume_i.pdf";
 
@@ -47,7 +47,6 @@ export default function ResumeViewer() {
     fetchMetaData();
   }, []);
 
-
   return (
     <>
       <button className="btn__back" onClick={() => navigate("/")}>
@@ -63,7 +62,9 @@ export default function ResumeViewer() {
       <div className="container9">
         <div className="sub__container">
           <div className="title__container">
-            <h1 className="title">Resume</h1>
+            <a className="link99" href={pdfUrl}>
+              <h1 className="title">Resume</h1>
+            </a>
 
             <button className="btn9" onClick={handleDownload}>
               <AiOutlineDownload className="icon" size={32} fill="#ffffff" />
