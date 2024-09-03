@@ -1,8 +1,7 @@
 import axios from "axios";
 import "./styless.css";
 import { useState, useEffect, useRef } from "react";
-import { AiOutlineDownload } from "react-icons/ai";
-import { IoChevronBackOutline } from "react-icons/io5";
+import { AiOutlineDownload, AiOutlineHome } from "react-icons/ai";
 import { useNavigate } from 'react-router-dom';
 
 export default function ResumeViewer() {
@@ -51,8 +50,8 @@ export default function ResumeViewer() {
 
   return (
     <>
-      <button className="btn__back" onClick={() => navigate(-1)}>
-        <IoChevronBackOutline
+      <button className="btn__back" onClick={() => navigate("/")}>
+        <AiOutlineHome
           className="icon__back"
           size={32}
           fill="#ffffff"
@@ -61,7 +60,7 @@ export default function ResumeViewer() {
         />
       </button>
 
-      <div className="container">
+      <div className="container9">
         <div className="sub__container">
           <div className="title__container">
             <h1 className="title">Resume</h1>
