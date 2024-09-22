@@ -31,6 +31,15 @@ export default function Footer() {
     setHasAnimated(true)
   }
 
+  const isValidEmail = (email) => {
+    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (emailPattern.test(email)) {
+      return true
+    } else {
+      return false
+    }
+  }
+
   const changeField = (field, value) => {
     if (field === "name") {
       setFieldValues({
@@ -117,12 +126,11 @@ export default function Footer() {
     }
     
 
-    // const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
-    // const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    // if (!emailRegex.test(fieldValues.email)) {
-    //   setSendStatus({ processed: true, variant: "error", message: "Invalid email" })
-    //   return
-    // }
+    
+    if (!isValidEmail(fieldValues.email)) {
+      setSendStatus({ processed: true, variant: "error", message: "Invalid email" })
+      return
+    }
 
     setIsSending(true)
     try {
@@ -165,7 +173,7 @@ export default function Footer() {
           {inputFields.map((field, index) => (
             <motion.div key={index} initial="hidden" animate={controls} variants={opacityVariant} transition={{ duration: 1, delay: 0.5 * (index + 1) }} className="input--div">
               <label htmlFor={field.id}>{field.label}</label>
-              {field.type === "textarea" ? <textarea onChange={(e) => changeField(field.id, e.target.value)} name={field.id} id={field.id} placeholder={field.placeholder} rows={field.rows} wrap={field.wrap} onClick={() => handleInputClick(field.stateKey)}></textarea> : <input onChange={(e) => changeField(field.id, e.target.value)} type={field.type} name={field.id} id={field.id} placeholder={field.placeholder} onClick={() => handleInputClick(field.stateKey)} />}
+              {field.type === "textarea" ? <textarea autoComplete="off" onChange={(e) => changeField(field.id, e.target.value)} name={field.id} id={field.id} placeholder={field.placeholder} rows={field.rows} wrap={field.wrap} onClick={() => handleInputClick(field.stateKey)}></textarea> : <input autoComplete="off" onChange={(e) => changeField(field.id, e.target.value)} type={field.type} name={field.id} id={field.id} placeholder={field.placeholder} onClick={() => handleInputClick(field.stateKey)} />}
               <motion.div
                 initial="hidden"
                 animate={controls}
