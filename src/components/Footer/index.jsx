@@ -31,6 +31,22 @@ export default function Footer() {
     setHasAnimated(true)
   }
 
+  const changeField = (field, value) => {
+    if (field === "name") {
+      setFieldValues({
+        ...fieldValues, name: value,
+      })
+    } else if (field === "email") {
+      setFieldValues({
+        ...fieldValues, email: value,
+      })
+    } else {
+      setFieldValues({
+        ...fieldValues, message: value,
+      })
+    }
+  }
+
   useEffect(() => {
     // Start animation when the component is in view
     if (inView && !hasAnimated) {
@@ -62,7 +78,7 @@ export default function Footer() {
       label: "Email",
       type: "email",
       id: "email",
-      placeholder: "me@example.com",
+      placeholder: "hello@mail.com",
       stateKey: "email",
     },
     {
@@ -90,21 +106,23 @@ export default function Footer() {
 
   const sendEmail = async () => {
     const requiredFields = ["name", "email", "message"]
-    const missingFields = requiredFields.filter((field) => !fieldValues[field])
+    const missingFields = requiredFields
+    // const missingFields = requiredFields.filter((field) => !fieldValues[field])
 
-    console.log(missingFields)
-
-    if (missingFields.length > 10) {
+    console.log(fieldValues.name, fieldValues.email, fieldValues.message)
+    if (!fieldValues.name && !fieldValues.email && !fieldValues.message) {
       setSendStatus({ processed: true, variant: "error", message: "Not all fields were filled" })
       timeoutAlert()
       return
     }
+    
 
-    const emailRegex = /@*/;
-    if (!emailRegex.test(fieldValues.email)) {
-      setSendStatus({ processed: true, variant: "error", message: "Invalid email" })
-      return
-    }
+    // const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
+    // const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    // if (!emailRegex.test(fieldValues.email)) {
+    //   setSendStatus({ processed: true, variant: "error", message: "Invalid email" })
+    //   return
+    // }
 
     setIsSending(true)
     try {
@@ -117,6 +135,7 @@ export default function Footer() {
         email: fieldValues.email,
         message: fieldValues.message,
       }
+      console.log(templateParams)
 
       const response = await emailjs.send(serviceId, templateid, templateParams, publicKey)
 
@@ -146,7 +165,7 @@ export default function Footer() {
           {inputFields.map((field, index) => (
             <motion.div key={index} initial="hidden" animate={controls} variants={opacityVariant} transition={{ duration: 1, delay: 0.5 * (index + 1) }} className="input--div">
               <label htmlFor={field.id}>{field.label}</label>
-              {field.type === "textarea" ? <textarea name={field.id} id={field.id} placeholder={field.placeholder} rows={field.rows} wrap={field.wrap} onClick={() => handleInputClick(field.stateKey)}></textarea> : <input autoComplete="off" type={field.type} name={field.id} id={field.id} placeholder={field.placeholder} onClick={() => handleInputClick(field.stateKey)} />}
+              {field.type === "textarea" ? <textarea onChange={(e) => changeField(field.id, e.target.value)} name={field.id} id={field.id} placeholder={field.placeholder} rows={field.rows} wrap={field.wrap} onClick={() => handleInputClick(field.stateKey)}></textarea> : <input onChange={(e) => changeField(field.id, e.target.value)} type={field.type} name={field.id} id={field.id} placeholder={field.placeholder} onClick={() => handleInputClick(field.stateKey)} />}
               <motion.div
                 initial="hidden"
                 animate={controls}
@@ -179,7 +198,7 @@ export default function Footer() {
       </div>
 
       <motion.div initial="hidden" animate={controls} variants={opacityVariant} transition={{ duration: 1, delay: 2.5 }} className="footer--bottom" onAnimationComplete={() => handleComplete()}>
-        <p>Copyright © {new Date().getFullYear()} Adam Gill</p>
+        <p>Copyright © {new Date().getFullYear()} David Bragg</p>
         <p>
           <Time delay={3} />
         </p>
