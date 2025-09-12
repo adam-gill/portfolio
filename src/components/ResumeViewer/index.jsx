@@ -92,11 +92,13 @@ export default function ResumeViewer() {
             {loading ? (
               <div className="resume9 skeleton animate-pulse-colors"></div>
             ) : (
-              <div className="pdf-wrapper">
                 <object
                   data={`${pdfUrl}#scrollbar=1&toolbar=0&navpanes=0&pagemode=none&view=FitV`}
                   type="application/pdf"
-                  className="pdf-object"
+                  style={{
+                    backgroundColor: "white",
+                    overflow: "scroll",
+                  }}
                 >
                   <p>
                     {"Your browser doesn't support PDFs."}
@@ -105,7 +107,6 @@ export default function ResumeViewer() {
                     </a>
                   </p>
                 </object>
-              </div>
             )}
           </div>
         </div>
