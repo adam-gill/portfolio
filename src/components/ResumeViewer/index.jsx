@@ -9,7 +9,7 @@ export default function ResumeViewer() {
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
   const pdfUrl =
-    "https://resumeblob63.blob.core.windows.net/resumecontainer/resume_i.pdf";
+    "https://filegilla-public.s3.us-east-1.amazonaws.com/misc/resume.pdf";
 
   const handleDownload = () => {
     fetch(pdfUrl)
@@ -31,9 +31,10 @@ export default function ResumeViewer() {
       try {
         setLoading(true);
         const res = await axios.head(
-          "https://resumeblob63.blob.core.windows.net/resumecontainer/resume_i.pdf"
+          "https://filegilla-public.s3.us-east-1.amazonaws.com/misc/resume.pdf"
         );
 
+        console.log(res);
         if (res) {
           setMetaData(res.headers["last-modified"]);
           setLoading(false);
@@ -72,18 +73,43 @@ export default function ResumeViewer() {
           </div>
 
           <div className="date">
-            {loading ? "Loading..." : `Last Modified: ${metaData}`}
+            {loading
+              ? "Loading..."
+              : metaData
+              ? `Last Modified: ${new Date(metaData).toLocaleString("en-US", {
+                  timeZone: "America/New_York",
+                  day: "2-digit",
+                  month: "short",
+                  year: "numeric",
+                  hour: "2-digit",
+                  minute: "2-digit",
+                  second: "2-digit",
+                  hour12: false,
+                }).replace(",", "")} EST`
+              : "Last Modified: N/A"}
           </div>
           <div className="resume__container9">
             {loading ? (
               <div className="resume9 skeleton animate-pulse-colors"></div>
             ) : (
-              <>
-                <iframe
-                  src={`${pdfUrl}#toolbar=0&navpanes=0&scrollbar=0&view=FitH`}
-                  className="resume9"
-                />
-              </>
+              <object
+                data={`${pdfUrl}#scrollbar=1&toolbar=0&navpanes=0&pagemode=none&view=FitV`}
+                type="application/pdf"
+                width="100%"
+                height="100%"
+                className="rounded-lg"
+                style={{
+                  backgroundColor: "white",
+                  overflow: "scroll",
+                }}
+              >
+                <p>
+                  {"Your browser doesn't support PDFs."}
+                  <a href={pdfUrl} target="_blank" rel="noopener noreferrer">
+                    Download the PDF
+                  </a>
+                </p>
+              </object>
             )}
           </div>
         </div>
