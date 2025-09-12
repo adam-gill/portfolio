@@ -1,34 +1,63 @@
 [
   {
-    "company": "Mergen ",
-    "role": "Software Engineer Intern ",
+    "company": "enGen (Highmark Health)",
+    "role": "Software Engineer Intern",
     "resps": [
-      "Built reusable and responsive React components and pages with Next.js, TypeScript, and Tailwind",
-      "Leveraged AWS Amplify for a CI/CD pipeline, accelerating feature development and deployment",
-      "Engineered a multi-page onboarding form and chatbot to streamline the college application process",
-      "Collaborated cross-functionally with designers and engineers to deliver features on schedule"
+      "Engineered fraud detection system in Java REST API with real-time Kafka security event messaging",
+      "Migrated Java REST utility to new OAM authentication and improved JUnit code coverage to 85%",
+      "Developed enterprise technology skills including GCP Cloud Architecture, DevOps workflows, GitLab CI/CD, RAG, AI, and Agentic AI through hands-on development and formal training"
     ],
-    "date": "Jul 2024 - Current"
+    "date": "May 2025 - Present"
   },
   {
-    "company": "Waynesburg University ",
-    "role": "ITS Student Support Specialist ",
+    "company": "BC Stone Homes",
+    "role": "Software Engineer (Contract)",
+    "resps": [
+      "Rebuilt vendor website in Next.js achieving 70% faster load times and significantly improved SEO",
+      "Developed internal CRM note feature on HubSpot objects w/ employee mentions and notifications",
+      "Built email and SMS notifications for internal CRM/HubSpot events with SendGrid and Twilio SMS",
+      "Crafted frontend components to interact with the HubSpot API and serve internal employees"
+    ],
+    "date": "Feb 2025 - Present"
+  },
+  {
+    "company": "Provideon Wire & Cable",
+    "role": "IT Consultant",
+    "resps": [
+      "Architected IT infrastructure with Sonicwall VPN, ERP integration, enabling automated workflows",
+      "Rewrote WordPress site in Next.js with 100+ products, cutting costs 90%, ongoing maintenance",
+      "Led strategic tech consulting on email, DNS, networking, and AI solutions across operations"
+    ],
+    "date": "Feb 2025 - Present"
+  },
+  {
+    "company": "Waynesburg University",
+    "role": "ITS Student Support Specialist",
     "resps": [
       "Delivered IT support for hardware and software issues faculty, staff, and students across campus",
       "Utilized a ticketing system to manage support requests received via email, phone, in-person",
       "Leveraged Azure Active Directory to manage user accounts and troubleshoot various problems",
       "Imaged and deployed new computer workstations to various locations across campus"
     ],
-    "date": "Jul 2024 - Current"
+    "date": "Jul 2024 - May 2025"
   },
   {
-    "company": "FENIX.AI ",
-    "role": "ITS Student Support Specialist ",
+    "company": "Mergen",
+    "role": "Software Engineer Intern",
     "resps": [
-      "Developed a Next.js web app w/TypeScript increasing FENIX.AI client and attorney productivity by providing interactive dashboards on client/project data, attorney efficiency, and attorney bandwidth",
+      "Built reusable and responsive React components and pages with Next.js, TypeScript, and Tailwind",
+      "Leveraged AWS Amplify for a CI/CD pipeline, accelerating feature development and deployment",
+      "Engineered a multi-page onboarding form and chatbot to streamline the college application process"
+    ],
+    "date": "Jul - Sep 2024"
+  },
+  {
+    "company": "FENIX.AI",
+    "role": "Software Engineer Intern",
+    "resps": [
+      "Developed Next.js site increasing client/attorney productivity by providing interactive dashboards",
       "Collaborated in an agile environment with Data Engineers/Analysts & Software Engineers",
-      "Implemented user authentication with Auth0 and configured SSO (SAML 2.0) to Domo Dashboards",
-      "Ensured security by creating protected routes so that only authorized users could view dashboards"
+      "Implemented user authentication with Auth0 and configured SSO (SAML 2.0) to Domo Dashboards"
     ],
     "date": "Mar - May 2024"
   }

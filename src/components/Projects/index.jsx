@@ -7,11 +7,10 @@ import ParaWriting from "../ParaWriting"
 import { motion, useAnimation } from "framer-motion"
 import { useInView } from "react-intersection-observer"
 
+import filegilla from "../../assets/Images/filegilla.png"
 import bitlance from "../../assets/Images/bitlance.png"
 import litstream from "../../assets/Images/litstream.png"
 import aisaas from "../../assets/Images/aisaas.png"
-import twitter_clone from "../../assets/Images/twitter_clone.png"
-import netflix_clone from "../../assets/Images/netflix_clone.png"
 
 export default function Projects() {
   const controls = useAnimation()
@@ -30,6 +29,15 @@ export default function Projects() {
   }, [inView, controls])
 
   const works = [
+    {
+      client: "Personal Project",
+      year: "2025",
+      img: filegilla,
+      title: "filegilla",
+      detail: "Developed a Next.js cloud storage platform where you can create and store files with your friends, and edit documents directly on the website with my rich text editor.",
+      url: "https://filegilla.com",
+      url2: "https://github.com/adam-gill/filegilla"
+    },
     {
       client: "Personal Project",
       year: "2024",

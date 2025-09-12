@@ -19,7 +19,6 @@ import fileIcon from "../../assets/Icon/file.svg"
 
 // jsons
 import technicalSkills from "../../constants/technicalSkills.json"
-import technicalSkills2 from "../../constants/technicalSkills2.json"
 import qualities from "../../constants/qualities.json"
 import experienceList from "../../constants/experienceList.json"
 
