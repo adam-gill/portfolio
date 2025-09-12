@@ -7,9 +7,23 @@ import { useNavigate } from "react-router-dom";
 export default function ResumeViewer() {
   const [metaData, setMetaData] = useState();
   const [loading, setLoading] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
   const navigate = useNavigate();
   const pdfUrl =
     "https://filegilla-public.s3.us-east-1.amazonaws.com/misc/resume.pdf";
+
+  useEffect(() => {
+    // Simple mobile detection
+    const checkMobile = () => {
+      const userAgent = navigator.userAgent || navigator.vendor || window.opera;
+      if (/android|webos|iphone|ipad|ipod|blackberry|iemobile|opera mini/i.test(userAgent.toLowerCase())) {
+        setIsMobile(true);
+      } else {
+        setIsMobile(false);
+      }
+    };
+    checkMobile();
+  }, []);
 
   const handleDownload = () => {
     fetch(pdfUrl)
@@ -76,7 +90,7 @@ export default function ResumeViewer() {
             {loading
               ? "Loading..."
               : metaData
-              ? `Last Modified: ${new Date(metaData).toLocaleString("en-US", {
+                ? `Last Modified: ${new Date(metaData).toLocaleString("en-US", {
                   timeZone: "America/New_York",
                   day: "2-digit",
                   month: "short",
@@ -86,18 +100,20 @@ export default function ResumeViewer() {
                   second: "2-digit",
                   hour12: false,
                 }).replace(",", "")} EST`
-              : "Last Modified: N/A"}
+                : "Last Modified: N/A"}
           </div>
           <div className="resume__container9">
             {loading ? (
               <div className="resume9 skeleton animate-pulse-colors"></div>
             ) : (
+              isMobile ? (
                 <object
                   data={`${pdfUrl}#scrollbar=1&toolbar=0&navpanes=0&pagemode=none&view=FitV`}
                   type="application/pdf"
                   style={{
                     backgroundColor: "white",
                     overflow: "scroll",
+                    marginTop: "-125px"
                   }}
                 >
                   <p>
@@ -107,6 +123,14 @@ export default function ResumeViewer() {
                     </a>
                   </p>
                 </object>
+              ) : (
+                <>
+                  <iframe
+                    src={`${pdfUrl}#toolbar=0&navpanes=0&scrollbar=0&view=FitH`}
+                    className="resume9"
+                  />
+                </>
+              )
             )}
           </div>
         </div>
