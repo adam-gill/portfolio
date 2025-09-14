@@ -15,7 +15,7 @@ export default function ResumeViewer() {
   useEffect(() => {
     // Simple mobile detection
     const checkMobile = () => {
-      const userAgent = navigator.userAgent || navigator.vendor || window.opera;
+      const userAgent = navigator.userAgent || window.opera;
       if (/android|webos|iphone|ipad|ipod|blackberry|iemobile|opera mini/i.test(userAgent.toLowerCase())) {
         setIsMobile(true);
       } else {
@@ -26,6 +26,7 @@ export default function ResumeViewer() {
   }, []);
 
   const handleDownload = () => {
+
     fetch(pdfUrl)
       .then((response) => response.blob())
       .then((blob) => {
@@ -81,9 +82,22 @@ export default function ResumeViewer() {
               <h1 className="title">Resume</h1>
             </a>
 
-            <button className="btn9" onClick={handleDownload}>
-              <AiOutlineDownload className="icon" size={32} fill="#ffffff" />
-            </button>
+            {isMobile ? (
+              <a
+                className="btn9"
+                href={pdfUrl}
+                download="Resume.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <AiOutlineDownload className="icon" size={32} fill="#ffffff" />
+              </a>
+            ) : (
+              <button className="btn9" onClick={handleDownload}>
+                <AiOutlineDownload className="icon" size={32} fill="#ffffff" />
+              </button>
+            )}
+
           </div>
 
           <div className="date">
