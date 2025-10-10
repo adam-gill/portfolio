@@ -8,9 +8,25 @@ export default function ResumeViewer() {
   const [metaData, setMetaData] = useState();
   const [loading, setLoading] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
+  const [pageHeight, setPageHeight] = useState(0);
   const navigate = useNavigate();
   const pdfUrl =
     "https://filegilla-public.s3.us-east-1.amazonaws.com/misc/resume.pdf";
+
+  useEffect(() => {
+    const calculatePageHeight = () => {
+      const height = window.innerHeight;
+      setPageHeight(height);
+    };
+
+    calculatePageHeight();
+    window.addEventListener("resize", calculatePageHeight);
+
+    // Cleanup event listener
+    return () => {
+      window.removeEventListener("resize", calculatePageHeight);
+    };
+  }, []);
 
   useEffect(() => {
     // Simple mobile detection
@@ -127,7 +143,8 @@ export default function ResumeViewer() {
                   style={{
                     backgroundColor: "white",
                     overflow: "scroll",
-                    marginTop: "-125px"
+                    height: pageHeight - 180,
+                    width: "100%"
                   }}
                 >
                   <p>
