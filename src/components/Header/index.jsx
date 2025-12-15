@@ -104,7 +104,7 @@ export default function Header() {
         </div>
 
         <h3>
-          <Time delay={4.0} />
+          <Time delay={2.0} />
         </h3>
       </motion.div>
 

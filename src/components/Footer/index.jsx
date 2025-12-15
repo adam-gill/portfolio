@@ -208,7 +208,7 @@ export default function Footer() {
       <motion.div initial="hidden" animate={controls} variants={opacityVariant} transition={{ duration: 1, delay: 2.5 }} className="footer--bottom" onAnimationComplete={() => handleComplete()}>
         <p>Copyright © {new Date().getFullYear()} Adam Gill</p>
         <p>
-          <Time delay={3} />
+          <Time delay={2} />
         </p>
         <p></p>
       </motion.div>

@@ -34,7 +34,7 @@ export default function Projects() {
       year: "2025",
       img: filegilla,
       title: "filegilla",
-      detail: "Developed a Next.js cloud storage platform where you can create and store files with your friends, and edit documents directly on the website with my rich text editor.",
+      detail: "Developed a Next.js cloud storage platform where you can store files, share files with friends, and edit documents directly on the website with my rich text editor.",
       url: "https://filegilla.com",
       url2: "https://github.com/adam-gill/filegilla"
     },

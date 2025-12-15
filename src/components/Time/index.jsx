@@ -17,7 +17,7 @@ export default function Time() {
       timeZone: timeZone,
       hour: "numeric",
       minute: "numeric",
-      hour12: true,
+      hour12: false,
     }
     return new Intl.DateTimeFormat("en-US", options).format(new Date())
   }
