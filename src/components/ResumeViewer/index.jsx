@@ -3,58 +3,48 @@ import "./styless.css";
 import { useState, useEffect, useRef } from "react";
 import { AiOutlineDownload, AiOutlineHome } from "react-icons/ai";
 import { useNavigate } from "react-router-dom";
+import { Document, Page, pdfjs } from "react-pdf";
+import "react-pdf/dist/Page/AnnotationLayer.css";
+import "react-pdf/dist/Page/TextLayer.css";
+
+pdfjs.GlobalWorkerOptions.workerSrc = `//unpkg.com/pdfjs-dist@${pdfjs.version}/build/pdf.worker.min.mjs`;
 
 export default function ResumeViewer() {
   const [metaData, setMetaData] = useState();
   const [loading, setLoading] = useState(false);
-  const [isMobile, setIsMobile] = useState(false);
-  const [pageHeight, setPageHeight] = useState(0);
+  const [numPages, setNumPages] = useState(null);
+  const [pageWidth, setPageWidth] = useState(null);
+  const [scale, setScale] = useState(1);
+  const containerRef = useRef(null);
   const navigate = useNavigate();
   const pdfUrl =
     "https://filegilla-public.s3.us-east-1.amazonaws.com/misc/resume.pdf";
 
   useEffect(() => {
-    const calculatePageHeight = () => {
-      const height = window.innerHeight;
-      setPageHeight(height);
-    };
-
-    calculatePageHeight();
-    window.addEventListener("resize", calculatePageHeight);
-
-    // Cleanup event listener
-    return () => {
-      window.removeEventListener("resize", calculatePageHeight);
-    };
-  }, []);
-
-  useEffect(() => {
-    // Simple mobile detection
-    const checkMobile = () => {
-      const userAgent = navigator.userAgent || window.opera;
-      if (/android|webos|iphone|ipad|ipod|blackberry|iemobile|opera mini/i.test(userAgent.toLowerCase())) {
-        setIsMobile(true);
-      } else {
-        setIsMobile(false);
+    const updateWidth = () => {
+      if (containerRef.current) {
+        setPageWidth(containerRef.current.clientWidth);
       }
     };
-    checkMobile();
+
+    updateWidth();
+    window.addEventListener("resize", updateWidth);
+
+    return () => {
+      window.removeEventListener("resize", updateWidth);
+    };
   }, []);
 
-  const handleDownload = () => {
+  const onDocumentLoadSuccess = ({ numPages }) => {
+    setNumPages(numPages);
+    setLoading(false);
+  };
 
-    fetch(pdfUrl)
-      .then((response) => response.blob())
-      .then((blob) => {
-        const url = URL.createObjectURL(blob);
-        const a = document.createElement("a");
-        a.href = url;
-        a.download = "Resume.pdf"; // Set the desired file name
-        document.body.appendChild(a);
-        a.click();
-        document.body.removeChild(a);
-      })
-      .catch((error) => console.error("Error fetching PDF:", error));
+  const handleDownload = () => {
+    const link = document.createElement("a");
+    link.href = pdfUrl;
+    link.download = "Resume.pdf";
+    link.click();
   };
 
   useEffect(() => {
@@ -62,17 +52,16 @@ export default function ResumeViewer() {
       try {
         setLoading(true);
         const res = await axios.head(
-          "https://filegilla-public.s3.us-east-1.amazonaws.com/misc/resume.pdf"
+          "https://filegilla-public.s3.us-east-1.amazonaws.com/misc/resume.pdf",
         );
 
-        console.log(res);
         if (res) {
           setMetaData(res.headers["last-modified"]);
-          setLoading(false);
         }
       } catch (error) {
-        setLoading(false);
         console.log("Metadata fetch error: ", error);
+      } finally {
+        setLoading(false);
       }
     };
 
@@ -81,88 +70,94 @@ export default function ResumeViewer() {
 
   return (
     <>
-      <button className="btn__back" onClick={() => navigate("/")}>
-        <AiOutlineHome
-          className="icon__back"
-          size={32}
-          fill="#ffffff"
-          strokeWidth={2}
-          color="#ffffff"
-        />
-      </button>
-
       <div className="container9">
         <div className="sub__container">
           <div className="title__container">
-            <a className="link99" href={pdfUrl}>
+            <button className="btn__back" onClick={() => navigate("/")}>
+              <AiOutlineHome
+                className="icon__back"
+                size={32}
+                fill="#ffffff"
+                strokeWidth={2}
+                color="#ffffff"
+              />
+            </button>
+
+            <a
+              className="link99"
+              href={pdfUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               <h1 className="title">Resume</h1>
             </a>
 
-            {isMobile ? (
-              <a
-                className="btn9"
-                href={pdfUrl}
-                download="Resume.pdf"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <AiOutlineDownload className="icon" size={32} fill="#ffffff" />
-              </a>
-            ) : (
-              <button className="btn9" onClick={handleDownload}>
-                <AiOutlineDownload className="icon" size={32} fill="#ffffff" />
-              </button>
-            )}
-
+            <button
+              className="btn__download"
+              onClick={handleDownload}
+              title="Download"
+            >
+              <AiOutlineDownload className="icon" size={32} fill="#ffffff" />
+            </button>
           </div>
 
           <div className="date">
             {loading
               ? "Loading..."
               : metaData
-                ? `Last Modified: ${new Date(metaData).toLocaleString("en-US", {
-                  timeZone: "America/New_York",
-                  day: "2-digit",
-                  month: "short",
-                  year: "numeric",
-                  hour: "2-digit",
-                  minute: "2-digit",
-                  second: "2-digit",
-                  hour12: false,
-                }).replace(",", "")} EST`
+                ? `Last Modified: ${new Date(metaData)
+                    .toLocaleString("en-US", {
+                      timeZone: "America/New_York",
+                      day: "2-digit",
+                      month: "short",
+                      year: "numeric",
+                      hour: "2-digit",
+                      minute: "2-digit",
+                      second: "2-digit",
+                      hour12: false,
+                    })
+                    .replace(",", "")} EST`
                 : "Last Modified: N/A"}
           </div>
-          <div className="resume__container9">
-            {loading ? (
-              <div className="resume9 skeleton animate-pulse-colors"></div>
-            ) : (
-              isMobile ? (
-                <object
-                  data={`${pdfUrl}#scrollbar=1&toolbar=0&navpanes=0&pagemode=none&view=FitV`}
-                  type="application/pdf"
+
+          <div className="resume__container9" ref={containerRef}>
+            <Document
+              file={pdfUrl}
+              onLoadSuccess={onDocumentLoadSuccess}
+              loading={
+                <div className="resume9 skeleton animate-pulse-colors"></div>
+              }
+              error={
+                <div
                   style={{
-                    backgroundColor: "white",
-                    overflow: "scroll",
-                    height: pageHeight - 180,
-                    width: "100%"
+                    padding: "20px",
+                    textAlign: "center",
+                    color: "#fff",
                   }}
                 >
-                  <p>
-                    {"Your browser doesn't support PDFs."}
-                    <a href={pdfUrl} target="_blank" rel="noopener noreferrer">
-                      Download the PDF
-                    </a>
-                  </p>
-                </object>
-              ) : (
-                <>
-                  <iframe
-                    src={`${pdfUrl}#toolbar=0&navpanes=0&scrollbar=0&view=FitH`}
-                    className="resume9"
+                  Failed to load PDF.
+                  <a
+                    href={pdfUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    style={{ color: "#4a9eff", marginLeft: "5px" }}
+                  >
+                    Download instead
+                  </a>
+                </div>
+              }
+            >
+              {pageWidth &&
+                Array.from(new Array(numPages), (_, index) => (
+                  <Page
+                    key={`page_${index + 1}`}
+                    pageNumber={index + 1}
+                    width={pageWidth * scale}
+                    renderTextLayer={true}
+                    renderAnnotationLayer={true}
                   />
-                </>
-              )
-            )}
+                ))}
+            </Document>
           </div>
         </div>
       </div>

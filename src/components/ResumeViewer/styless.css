@@ -15,11 +15,24 @@
 
 .resume__container9 {
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     justify-content: center;
     width: 100%;
     max-width: 1000px;
-    height: calc(100vh - 100px);
+    padding-bottom: 20px;
+}
+
+.resume__container9 .react-pdf__Document {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    width: 100%;
+}
+
+.resume__container9 .react-pdf__Page {
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.5);
+    background: white;
 }
 
 .container9 {
@@ -74,6 +87,18 @@
     border: none;
     padding-top: 16px;
     padding-left: 16px;
+    cursor: pointer;
+    z-index: 50;
+}
+
+.btn__download {
+    position: absolute;
+    background-color: transparent;
+    top: 0;
+    right: 0;
+    border: none;
+    padding-top: 16px;
+    padding-right: 16px;
     cursor: pointer;
     z-index: 50;
 }
@@ -143,10 +168,17 @@
         font-size: 12px;
     }
 
-    .resume9 {
-        width: 400px;
-        height: 518px;
+    .title__container {
+        flex-wrap: wrap;
+        gap: 8px;
     }
 
-    
+    .btn9 {
+        position: relative;
+        padding: 8px;
+    }
+
+    .resume__container9 {
+        padding-bottom: 20px;
+    }
 }
